@@ -1,4 +1,6 @@
 import {definePlugin} from 'sanity'
+import {tagSchema} from './schemas/tag'
+import {tagsSchema} from './schemas/tags'
 
 interface MyPluginConfig {
   /* nothing here yet */
@@ -9,18 +11,17 @@ interface MyPluginConfig {
  *
  * ```ts
  * import {defineConfig} from 'sanity'
- * import {myPlugin} from 'sanity-plugin-tags'
+ * import {tags} from 'sanity-plugin-tags'
  *
  * export default defineConfig({
  *   // ...
- *   plugins: [myPlugin()],
+ *   plugins: [tags()],
  * })
  * ```
  */
-export const myPlugin = definePlugin<MyPluginConfig | void>((config = {}) => {
-  // eslint-disable-next-line no-console
-  console.log('hello from sanity-plugin-tags')
-  return {
-    name: 'sanity-plugin-tags',
-  }
-})
+export const tags = definePlugin<MyPluginConfig | void>((config = {}) => ({
+  name: 'sanity-plugin-tags',
+  schema: {
+    types: [tagSchema, tagsSchema],
+  },
+}))
