@@ -1,5 +1,10 @@
-import {ArrayOfObjectsInputProps, ObjectInputProps} from 'sanity'
-import {ArraySchemaType, ReferenceSchemaType, ObjectSchemaType} from '@sanity/types'
+import {
+  ArrayOfObjectsInputProps,
+  ArraySchemaType,
+  ObjectInputProps,
+  ObjectSchemaType,
+  ReferenceSchemaType,
+} from 'sanity'
 import {GroupBase, Props, SelectComponentsConfig} from 'react-select'
 import {Subscription} from 'rxjs'
 
