@@ -2,7 +2,7 @@ import {definePlugin} from 'sanity'
 import {tagSchema} from './schemas/tag'
 import {tagsSchema} from './schemas/tags'
 
-interface MyPluginConfig {
+interface TagsPluginConfig {
   /* nothing here yet */
 }
 
@@ -19,7 +19,7 @@ interface MyPluginConfig {
  * })
  * ```
  */
-export const tags = definePlugin<MyPluginConfig | void>((config = {}) => ({
+export const tags = definePlugin<TagsPluginConfig | void>((config = {}) => ({
   name: 'sanity-plugin-tags',
   schema: {
     types: [tagSchema, tagsSchema],
