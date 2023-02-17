@@ -1,3 +1,5 @@
+import {InputType, Tag} from '../types'
+
 /**
  *
  * @param type type prop passed by sanity to input components
@@ -88,7 +90,7 @@ function prototypeCheck(prop: string) {
  * @param value The value to add to the object
  * @returns True or false defining whether it is sucessfully added
  */
-export const set = <Value extends unknown>(
+export const setAtPath = <Value extends unknown>(
   obj: Record<string, unknown>,
   path: string | string[],
   value: Value
@@ -115,4 +117,13 @@ export const set = <Value extends unknown>(
   obj[lastProp] = value
 
   return true
+}
+
+export function isPlainObject(value: unknown): value is Record<string, unknown> {
+  return (
+    typeof value === 'object' &&
+    value !== null &&
+    value.constructor === Object &&
+    Object.prototype.toString.call(value) === '[object Object]'
+  )
 }
