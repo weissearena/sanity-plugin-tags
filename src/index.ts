@@ -2,9 +2,7 @@ import {definePlugin} from 'sanity'
 import {tagSchema} from './schemas/tag'
 import {tagsSchema} from './schemas/tags'
 
-interface TagsPluginConfig {
-  /* nothing here yet */
-}
+interface TagsPluginConfig {}
 
 /**
  * Usage in `sanity.config.ts` (or .js)
