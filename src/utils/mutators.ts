@@ -19,8 +19,8 @@ const prepareTag = ({customLabel = 'label', customValue = 'value'}: PrepareTagIn
       ...tag,
       _type: 'tag',
       _key: tag.value,
-      _label_temp: tag.label,
-      _value_temp: tag.value,
+      _labelTemp: tag.label,
+      _valueTemp: tag.value,
       label: get(tag, customLabel),
       value: get(tag, customValue),
     }
@@ -67,15 +67,15 @@ function revertTag<IsReference extends boolean>({
 
     const tempTag: GeneralTag = {
       ...tag,
-      label: tag._label_temp,
-      value: tag._value_temp,
+      label: tag._labelTemp,
+      value: tag._valueTemp,
     }
 
     setAtPath(tempTag, customLabel, tag.label)
     setAtPath(tempTag, customValue, tag.value)
 
-    delete tempTag._label_temp
-    delete tempTag._value_temp
+    delete tempTag._labelTemp
+    delete tempTag._valueTemp
     if (tempTag.label === undefined) delete tempTag.label
     if (tempTag.value === undefined) delete tempTag.value
 
@@ -204,15 +204,15 @@ export function revertTags<IsReference extends boolean, IsMulti extends boolean>
 
   if (isMulti) {
     // ensure it is actually an array
-    if (!Array.isArray(tags)) tags = [tags]
+    const tagsArray = Array.isArray(tags) ? tags : [tags]
 
     // revert and return array
-    return tags.map(revert)
+    return tagsArray.map(revert)
   }
 
   // not multi, so ensure is a single tag
-  if (Array.isArray(tags)) tags = tags[0]
+  const tag = Array.isArray(tags) ? tags[0] : tags
 
   // revert tag
-  return revert(tags)
+  return revert(tag)
 }

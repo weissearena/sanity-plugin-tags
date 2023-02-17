@@ -1,8 +1,7 @@
 import {ArrayOfObjectsInputProps, ObjectInputProps} from 'sanity'
-import {ListenEvent, SanityDocument} from '@sanity/client'
 import {ArraySchemaType, ReferenceSchemaType, ObjectSchemaType} from '@sanity/types'
 import {GroupBase, Props, SelectComponentsConfig} from 'react-select'
-import {Observable, Subscription} from 'rxjs'
+import {Subscription} from 'rxjs'
 
 export type GeneralSubscription = Subscription | {unsubscribe: () => any}
 
@@ -26,9 +25,6 @@ export interface Tag {
 export type UnrefinedTags = RefTag | GeneralTag | RefTag[] | GeneralTag[] | undefined
 
 export type RefinedTags = Tag | Tag[] | undefined
-
-type TagListenEvent = ListenEvent<GeneralTag[] | RefTag[]>
-type TagObserver = Observable<ListenEvent<GeneralTag[] | RefTag[]>>
 
 export type PredefinedTags =
   | GeneralTag[]

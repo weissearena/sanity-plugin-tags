@@ -11,5 +11,9 @@
     "plugin:react-hooks/recommended",
     "plugin:prettier/recommended",
     "plugin:react/jsx-runtime"
-  ]
+  ],
+  "rules": {
+    "no-redeclare": "off",
+    "require-await": "off"
+  }
 }
