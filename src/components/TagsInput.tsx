@@ -22,6 +22,14 @@ import {
 } from '../utils/observables'
 import {ReferenceCreateWarning, ReferencePredefinedWarning} from './ReferenceWarnings'
 
+// TODO: Allow reference creation inline
+// TODO: Allow reference merging inline (stretch ??)
+// TODO: Allow reference editing inline (stretch ??)
+// TODO: Allow reference deleting inline (stretch ??)
+// TODO: Allow object merging inline (stretch ??)
+// TODO: Allow object editing inline (stretch ??)
+// TODO: Allow object deleting inline (stretch ??)
+
 export const TagsInput = forwardRef<StateManagedSelect, TagsInputProps>(
   (props: TagsInputProps, ref: React.Ref<Select>) => {
     const client = useClient()
